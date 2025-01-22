@@ -32,10 +32,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',
-        'role_id',
+        'url_sheet',
     ];
 
     /**
@@ -73,8 +74,9 @@ class User extends Authenticatable
      *
      * @return HasMany
      */
-    public function googleSheetsLinks(): HasMany
+    public function googleSheetLinks()
     {
         return $this->hasMany(GoogleSheetLink::class, 'user_id');
     }
+
 }
